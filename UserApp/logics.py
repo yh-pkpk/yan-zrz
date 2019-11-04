@@ -21,7 +21,7 @@ def send_vcode(phone):
     sms_args['param'] = vcode
     sms_args['mobile'] = phone
     response = requests.post(cfg.YZX_API, json=sms_args)
-    if response.status_code ==200:
+    if response.status_code == 200:
         result = response.json()
         if result['code'] == '000000':
             return True

@@ -9,7 +9,7 @@ from UserApp.models import User
 
 
 def get_vcode(request):
-    #获取短信验证码
+    # 获取短信验证码
     phonenum = request.Get.get('phonenum')
     # 发送验证码并检查是否发送成功
     if logics.send_vcode(phonenum):
@@ -28,7 +28,7 @@ def check_vcode(request):
         try:
             user = User.objects.get(phonenum=phonenum)
         except User.DoesNotExist:
-            #如果用户不存在，直接创建出来
+            # 如果用户不存在，直接创建出来
             user = User.objects.create(
                 phonenum=phonenum,
                 nickname=phonenum,
